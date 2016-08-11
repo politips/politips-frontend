@@ -6,6 +6,12 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
+import { createStore } from 'redux'
+import authReducer from './reducers/authReducer';
+console.log(authReducer);
+let store = createStore(authReducer);
+console.log(store);
+
 import App from './components/app';
 import Login from './components/login';
 import About from './components/about';

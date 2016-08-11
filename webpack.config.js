@@ -23,7 +23,7 @@ config = {
   entry: {
     app: "./app.jsx",
     vendor: [
-      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery'
+      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux'
     ]
   },
   output: {
