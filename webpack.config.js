@@ -21,7 +21,7 @@ try {
 config = {
   context: path.join(__dirname, "src"),
   entry: {
-    app: "./app.js",
+    app: "./app.jsx",
     vendor: [
       'react',
     ]
