@@ -24,6 +24,7 @@ const Login = React.createClass({
   },
 
   render() {
+    console.log(this.props);
     return (
       <div className="container">
         <div className="row">
@@ -39,7 +40,7 @@ const Login = React.createClass({
                   <input type="password" className="form-control" value={this.state.password} onChange={this.setPassword}/>
                 </div>
                 <div>
-                  <button type='submit' className='btn btn-primary'>Submit</button>
+                  <button disabled={this.props.isLoggingIn} type='submit' className='btn btn-primary'>Submit</button>
                 </div>
               </form>
             </div>
@@ -51,7 +52,7 @@ const Login = React.createClass({
 })
 
 const mapStateToProps = (state) => {
-  return {}
+  return state.auth;
 }
 
 const mapDispatchToProps = (dispatch) => {
