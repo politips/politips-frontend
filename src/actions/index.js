@@ -7,6 +7,14 @@ export function loginBegin() {
   }
 }
 
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export function loginError(loginErrorData) {
+  return {
+    "type": LOGIN_ERROR,
+    "loginErrorData": loginErrorData
+  }
+}
+
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export function loginSuccess(token, user) {
   return {
@@ -23,9 +31,11 @@ export function login(username, password) {
     return request.post(ENV.POLITIPS_API_URL + '/api-token-auth/', {
       "username": username,
       "password": password
-    }).end(function(err, response) {
+    }).then(function(response) {
       dispatch(loginSuccess(response.body.token, response.body.user));
-    });
+    }).catch(function(e) {
+      dispatch(loginError(e.body));
+    })
   }
 }
 

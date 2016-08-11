@@ -1,10 +1,16 @@
-import { LOGIN_BEGIN, LOGIN_SUCCESS } from '../actions';
+import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS } from '../actions';
 
-let authReducer = function(state={'user': {}}, action) {
+let authReducer = function(state={'user': null}, action) {
   switch (action.type) {
     case LOGIN_BEGIN:
       return Object.assign({}, state, {
         "isLoggingIn": true
+      });
+    break;
+    case LOGIN_ERROR:
+      return Object.assign({}, state, {
+        "isLoggingIn": false,
+        "loginErrorData": action.loginErrorData
       });
     break;
     case LOGIN_SUCCESS:
