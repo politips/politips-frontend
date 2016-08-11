@@ -1,48 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+import { Navbar as RBNavbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
+
+import { LinkContainer } from 'react-router-bootstrap';
+
+
+
 const Navbar = React.createClass({
   render() {
     return (
-      <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <Link className="navbar-brand" to={'/'}>Politips</Link>
-          </div>
-
-          <div>
-            <ul className="nav navbar-nav">
-              <li><Link to={'/about/'}>About</Link></li>
-              <li><a href="#">Link</a></li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                <ul className="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                <ul className="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <RBNavbar inverse>
+        <RBNavbar.Header>
+          <RBNavbar.Brand>
+            <Link to={'/'}>Politips</Link>
+          </RBNavbar.Brand>
+        </RBNavbar.Header>
+        <RBNavbar.Collapse>
+          <Nav>
+            <LinkContainer to={'/about/'}>
+              <NavItem>About</NavItem>
+            </LinkContainer>
+            <NavItem eventKey={2} href="#">Link</NavItem>
+          </Nav>
+          <Nav pullRight>
+            <NavDropdown title='My Account' eventKey={3}>
+              <MenuItem eventKey={3.1}>Action</MenuItem>
+              <MenuItem eventKey={3.2}>Another action</MenuItem>
+              <MenuItem eventKey={3.3}>Something else here</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={3.3}>Separated link</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </RBNavbar.Collapse>
+      </RBNavbar>
     )
   }
 })

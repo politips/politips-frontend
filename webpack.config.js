@@ -23,7 +23,7 @@ config = {
   entry: {
     app: "./app.jsx",
     vendor: [
-      'react', 'react-dom', 'react-router'
+      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery'
     ]
   },
   output: {
@@ -69,6 +69,10 @@ config = {
     }),
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
     new webpack.optimize.DedupePlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      "jQuery": "jquery"
+    }),
     //new webpack.optimize.UglifyJsPlugin({mangle: false})
   ],
   devServer: {
