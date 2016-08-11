@@ -23,7 +23,8 @@ config = {
   entry: {
     app: "./app.jsx",
     vendor: [
-      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux'
+      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux',
+      'superagent', 'superagent-bluebird-promise', 'bluebird'
     ]
   },
   output: {

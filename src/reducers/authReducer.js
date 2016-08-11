@@ -1,9 +1,17 @@
+import { LOGIN_BEGIN, LOGIN_SUCCESS } from '../actions';
+
 let authReducer = function(state={'user': {}}, action) {
   switch (action.type) {
-    case 'BEGIN_LOGIN':
-      console.log("beginning log in");
+    case LOGIN_BEGIN:
       return Object.assign({}, state, {
         "isLoggingIn": true
+      });
+    break;
+    case LOGIN_SUCCESS:
+      return Object.assign({}, state, {
+        "isLoggingIn": false,
+        "user": action.user,
+        "token": action.token
       });
     break;
   }

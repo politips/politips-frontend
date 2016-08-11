@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
+import { login } from '../actions';
 
 const Login = React.createClass({
   getInitialState() {
@@ -57,11 +58,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (username, password) => {
-      dispatch({
-        "type": 'BEGIN_LOGIN',
-        "username": username,
-        "password": password
-      })
+      dispatch(login(username, password));
     }
   }
 }
