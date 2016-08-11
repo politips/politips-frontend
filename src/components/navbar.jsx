@@ -25,7 +25,9 @@ const Navbar = React.createClass({
           </Nav>
           <Nav pullRight>
             <NavDropdown title='My Account' eventKey={3}>
-              <MenuItem eventKey={3.1}>Action</MenuItem>
+              <LinkContainer to={'/login/'}>
+                <MenuItem>Login</MenuItem>
+              </LinkContainer>
               <MenuItem eventKey={3.2}>Another action</MenuItem>
               <MenuItem eventKey={3.3}>Something else here</MenuItem>
               <MenuItem divider />

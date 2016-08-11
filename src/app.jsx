@@ -7,11 +7,13 @@ import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
 import App from './components/app';
+import Login from './components/login';
 import About from './components/about';
 
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <Route path="login" component={Login}/>
       <Route path="about" component={About}/>
     </Route>
   </Router>
