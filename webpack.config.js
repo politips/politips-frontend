@@ -23,7 +23,7 @@ config = {
   entry: {
     app: "./app.jsx",
     vendor: [
-      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux'
+      'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux'
     ]
   },
   output: {
@@ -58,8 +58,9 @@ config = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
-        }
+          presets: ['es2015', 'react'],
+          plugins: ['transform-object-rest-spread']
+        },
       }
     ]
   },

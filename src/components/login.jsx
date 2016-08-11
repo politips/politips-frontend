@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
 
 const Login = React.createClass({
   getInitialState() {
@@ -18,7 +20,7 @@ const Login = React.createClass({
 
   submit(e) {
     e.preventDefault();
-    console.log(this.state);
+    this.props.login(this.state.username, this.state.password);
   },
 
   render() {
@@ -48,4 +50,20 @@ const Login = React.createClass({
   }
 })
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (username, password) => {
+      dispatch({
+        "type": 'BEGIN_LOGIN',
+        "username": username,
+        "password": password
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

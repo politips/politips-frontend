@@ -6,22 +6,36 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
-import { createStore } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk';
 import authReducer from './reducers/authReducer';
-console.log(authReducer);
-let store = createStore(authReducer);
-console.log(store);
+
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+
+const store = createStore(
+  combineReducers({
+    auth: authReducer,
+    routing: routerReducer
+  }),
+  applyMiddleware(thunk)
+);
+
+console.log('store', store);
+const history = syncHistoryWithStore(browserHistory, store)
 
 import App from './components/app';
 import Login from './components/login';
 import About from './components/about';
 
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <Route path="login" component={Login}/>
-      <Route path="about" component={About}/>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <Route path="login" component={Login}/>
+        <Route path="about" component={About}/>
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('app'))
 
