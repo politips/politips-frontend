@@ -23,13 +23,16 @@ config = {
   entry: {
     app: "./app.jsx",
     vendor: [
-      'react',
+      'react', 'react-dom', 'react-router'
     ]
   },
   output: {
     path: __dirname + "/dist/js/",
     filename: "[name].js",
     publicPath: "/js/"
+  },
+  resolve: {
+    extensions: ['', '.jsx', '.js', '.css', '.scss', '.sass']
   },
   module: {
     loaders: [
