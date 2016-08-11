@@ -37,12 +37,6 @@ config = {
         test: /\.html$/,
         loader: 'html-loader'
       }, {
-        test: /\.coffee$/,
-        loader: 'coffee-loader'
-      }, {
-        test: /\.jade$/,
-        loader: 'jade-loader'
-      }, {
         test: /\.css$/,
         loader: 'style!css'
       }, {
@@ -57,6 +51,12 @@ config = {
       }, {
         test: /\.(woff(2)?|ttf|eot|svg|png|cur|jpg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file'
+      }, {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   },
