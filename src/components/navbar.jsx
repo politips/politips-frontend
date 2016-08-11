@@ -7,7 +7,7 @@ const Navbar = React.createClass({
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">Politips</a>
+            <Link className="navbar-brand" to={'/'}>Politips</Link>
           </div>
 
           <div>
