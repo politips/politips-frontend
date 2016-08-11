@@ -21,17 +21,12 @@ const Navbar = React.createClass({
             <LinkContainer to={'/about/'}>
               <NavItem>About</NavItem>
             </LinkContainer>
-            <NavItem eventKey={2} href="#">Link</NavItem>
           </Nav>
           <Nav pullRight>
-            <NavDropdown title='My Account' eventKey={3}>
+            <NavDropdown title='My Account'>
               <LinkContainer to={'/login/'}>
                 <MenuItem>Login</MenuItem>
               </LinkContainer>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
             </NavDropdown>
           </Nav>
         </RBNavbar.Collapse>
