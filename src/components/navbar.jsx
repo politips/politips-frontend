@@ -23,7 +23,7 @@ const Navbar = React.createClass({
             </LinkContainer>
           </Nav>
           <Nav pullRight>
-            <NavDropdown title='My Account'>
+            <NavDropdown id="accountDropdown" title='My Account'>
               <LinkContainer to={'/login/'}>
                 <MenuItem>Login</MenuItem>
               </LinkContainer>
