@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
 import { login } from '../actions';
 
@@ -14,14 +15,17 @@ const Login = React.createClass({
   setUsername(e) {
     this.setState({'username': e.target.value});
   },
-
   setPassword(e) {
     this.setState({'password': e.target.value});
   },
 
   submit(e) {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password);
+    this.props.login(this.state.username, this.state.password).then(() => {
+      if (this.props.user) {
+        this.props.router.push('/home');
+      }
+    });
   },
 
   render() {
@@ -58,9 +62,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (username, password) => {
-      dispatch(login(username, password));
+      return dispatch(login(username, password))
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
