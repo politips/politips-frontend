@@ -4,18 +4,14 @@ let authReducer = function(state={'user': null}, action) {
   switch (action.type) {
     case LOGIN_BEGIN:
       return Object.assign({}, state, {
-        "isLoggingIn": true
       });
     break;
     case LOGIN_ERROR:
       return Object.assign({}, state, {
-        "isLoggingIn": false,
-        "loginErrorData": action.loginErrorData
       });
     break;
     case LOGIN_SUCCESS:
       return Object.assign({}, state, {
-        "isLoggingIn": false,
         "user": action.user,
         "token": action.token
       });
@@ -25,6 +21,7 @@ let authReducer = function(state={'user': null}, action) {
         "user": null,
         "token": null
       });
+    break;
   }
   return state;
 }
