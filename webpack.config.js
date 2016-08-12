@@ -33,7 +33,14 @@ config = {
     publicPath: "/js/"
   },
   resolve: {
-    extensions: ['', '.jsx', '.js', '.css', '.scss', '.sass']
+    "root": [path.resolve(__dirname)],
+    "extensions": ['', '.jsx', '.js', '.css', '.scss', '.sass'],
+    "alias": {
+      "jquery": "node_modules/jquery/dist/jquery.min.js",
+      "jQuery": "node_modules/jquery/dist/jquery.min.js",
+      "bluebird": "node_modules/bluebird/js/browser/bluebird.min.js",
+      "react-bootstrap": "node_modules/react-bootstrap/dist/react-bootstrap.min.js",
+    },
   },
   module: {
     loaders: [
