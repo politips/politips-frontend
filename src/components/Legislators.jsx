@@ -4,7 +4,9 @@ import { fetchLegislators } from '../actions'
 
 const Legislators = React.createClass({
   componentDidMount() {
+    if (!this.props.legislators) {
       this.props.fetchLegislators();
+    }
   },
  
   render() {
