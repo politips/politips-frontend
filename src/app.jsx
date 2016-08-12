@@ -32,10 +32,10 @@ persistStore(store, {
 window.store = store;
 const history = syncHistoryWithStore(browserHistory, store)
 
-import App from './components/app';
-import Login from './components/login';
-import About from './components/about';
-import Home from './components/home';
+import App from './components/App';
+import Login from './components/Login';
+import About from './components/About';
+import Home from './components/Home';
 
 render((
   <Provider store={store}>
