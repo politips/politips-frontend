@@ -53,7 +53,7 @@ const Login = React.createClass({
               <form onSubmit={this.submit}>
                 { this.state.generalError ?
                   <div className='alert alert-danger'>
-                    xxx
+                    <ul> { this.state.generalError.map((e) => { return <li><strong>{e}</strong></li> }) } </ul>
                   </div> 
                 : null}
                 <div className={classNames({
