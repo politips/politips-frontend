@@ -39,4 +39,10 @@ export function login(username, password) {
   }
 }
 
+export const LOGOUT = 'LOGOUT';
+export function logout(token, user) {
+  return {
+    "type": LOGOUT
+  }
+}
 

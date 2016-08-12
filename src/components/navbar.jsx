@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import { Navbar as RBNavbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
+import { logout } from '../actions';
 
 const Navbar = React.createClass({
   render() {
@@ -25,7 +26,7 @@ const Navbar = React.createClass({
             <NavDropdown id="accountDropdown" title={this.props.user ? this.props.user.username : 'My Account'}>
             { this.props.user ? (
               <LinkContainer to={'/logout/'}>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={this.props.logout}>Logout</MenuItem>
               </LinkContainer>
             ) : (
               <LinkContainer to={'/login/'}>
@@ -41,13 +42,14 @@ const Navbar = React.createClass({
 })
 
 const mapStateToProps = (state) => {
-  return {
-    "user": state.auth.user
-  }
+  return state.auth
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    logout: function() {
+      return dispatch(logout());
+    }
   }
 }
 

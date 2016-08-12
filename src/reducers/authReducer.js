@@ -1,4 +1,4 @@
-import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS } from '../actions';
+import { LOGIN_BEGIN, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT } from '../actions';
 
 let authReducer = function(state={'user': null}, action) {
   switch (action.type) {
@@ -20,6 +20,11 @@ let authReducer = function(state={'user': null}, action) {
         "token": action.token
       });
     break;
+    case LOGOUT:
+      return Object.assign({}, state, {
+        "user": null,
+        "token": null
+      });
   }
   return state;
 }
