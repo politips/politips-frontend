@@ -79,7 +79,12 @@ const Login = React.createClass({
                   : null }
                 </div>
                 <div>
-                  <button disabled={this.state.isLoggingIn} type='submit' className='btn btn-primary'>Submit</button>
+                  <button disabled={this.state.isLoggingIn} type='submit' className='btn btn-primary'>
+                    {this.state.isLoggingIn ?
+                      <i className='fa fa-spin fa-spinner'></i>
+                    : null}
+                    &nbsp;Submit
+                  </button>
                 </div>
               </form>
             </div>
