@@ -10,6 +10,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import authReducer from './reducers/authReducer';
+import legislatorsReducer from './reducers/legislatorsReducer';
 
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import {persistStore, autoRehydrate} from 'redux-persist'
@@ -17,7 +18,8 @@ import {persistStore, autoRehydrate} from 'redux-persist'
 const store = createStore(
   combineReducers({
     auth: authReducer,
-    routing: routerReducer
+    legislators: legislatorsReducer,
+    routing: routerReducer,
   }),
   compose(
     applyMiddleware(thunk),
@@ -36,6 +38,7 @@ import App from './components/App';
 import Login from './components/Login';
 import About from './components/About';
 import Home from './components/Home';
+import Legislators from './components/Legislators';
 
 render((
   <Provider store={store}>
@@ -45,6 +48,7 @@ render((
         <Route path="home"  component={Home}/>
         <Route path="login" component={Login}/>
         <Route path="about" component={About}/>
+        <Route path="legislators" component={Legislators}/>
       </Route>
     </Router>
   </Provider>

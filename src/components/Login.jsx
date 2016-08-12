@@ -48,12 +48,12 @@ const Login = React.createClass({
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-8 col-md-offset-2">
+          <div className="col-md-4 col-md-offset-4">
             <div className="well">
               <form onSubmit={this.submit}>
                 { this.state.generalError ?
                   <div className='alert alert-danger'>
-                    <ul> { this.state.generalError.map((e) => { return <li><strong>{e}</strong></li> }) } </ul>
+                    <ul> { this.state.generalError.map((e) => { return <li key={e}><strong>{e}</strong></li> }) } </ul>
                   </div> 
                 : null}
                 <div className={classNames({
@@ -63,7 +63,7 @@ const Login = React.createClass({
                   <input type="text" className="form-control" value={this.state.username} onChange={this.setUsername}/>
                   {this.state.usernameError ?
                     <span className='help-block'>
-                      <ul> { this.state.usernameError.map((e) => { return <li><strong>{e}</strong></li> }) } </ul>
+                      <ul> { this.state.usernameError.map((e) => { return <li key={e}><strong>{e}</strong></li> }) } </ul>
                     </span>
                   : null }
                 </div>
@@ -74,7 +74,7 @@ const Login = React.createClass({
                   <input type="password" className="form-control" value={this.state.password} onChange={this.setPassword}/>
                   {this.state.passwordError ?
                     <span className='help-block'>
-                      <ul> { this.state.passwordError.map((e) => { return <li><strong>{e}</strong></li> }) } </ul>
+                      <ul> { this.state.passwordError.map((e) => { return <li key={e}><strong>{e}</strong></li> }) } </ul>
                     </span>
                   : null }
                 </div>
