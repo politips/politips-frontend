@@ -21,7 +21,7 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-console.log('store', store);
+window.store = store;
 const history = syncHistoryWithStore(browserHistory, store)
 
 import App from './components/app';
