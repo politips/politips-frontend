@@ -21,8 +21,9 @@ const Login = React.createClass({
 
   submit(e) {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password).then(() => {
-      if (this.props.user) {
+    this.props.login(this.state.username, this.state.password)
+    .then((loggedIn) => {
+      if (loggedIn) {
         this.props.router.push('/home');
       }
     });

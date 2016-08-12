@@ -33,8 +33,10 @@ export function login(username, password) {
       "password": password
     }).then(function(response) {
       dispatch(loginSuccess(response.body.token, response.body.user));
+      return true;
     }).catch(function(e) {
       dispatch(loginError(e.body));
+      return false;
     })
   }
 }
