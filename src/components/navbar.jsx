@@ -25,9 +25,7 @@ const Navbar = React.createClass({
           <Nav pullRight>
             <NavDropdown id="accountDropdown" title={this.props.user ? this.props.user.username : 'My Account'}>
             { this.props.user ? (
-              <LinkContainer to={'/logout/'}>
-                <MenuItem onClick={this.props.logout}>Logout</MenuItem>
-              </LinkContainer>
+              <MenuItem onClick={this.props.logout}>Logout</MenuItem>
             ) : (
               <LinkContainer to={'/login/'}>
                 <MenuItem>Login</MenuItem>
