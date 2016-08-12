@@ -24,7 +24,7 @@ config = {
     app: "./app.jsx",
     vendor: [
       'react', 'react-dom', 'react-router', 'react-bootstrap', 'jquery', 'redux', 'react-redux', 'react-router-redux',
-      'superagent', 'superagent-bluebird-promise', 'bluebird'
+      'superagent', 'superagent-bluebird-promise', 'bluebird', 'redux-persist'
     ]
   },
   output: {
